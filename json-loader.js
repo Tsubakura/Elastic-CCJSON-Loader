@@ -23,7 +23,7 @@ const main = () => {
 const sendData = (stream) => {
 	stream    
 	.pipe(JSONStream.parse(`${key}.*`))    
-	.pipe(etl.collect(200))    
+	.pipe(etl.collect(200))    //You change the limit, but keep in mind that the chance of running out of memory will increases
 	.pipe(etl.elastic.index(client, index, type))
 }
   
