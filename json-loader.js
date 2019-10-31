@@ -23,7 +23,7 @@ const main = () => {
 const sendData = (stream) => {
 	stream    
 	.pipe(JSONStream.parse(`${key}.*`))    
-	.pipe(etl.collect(1000))    
+	.pipe(etl.collect(200))    
 	.pipe(etl.elastic.index(client, index, type))
 }
   
